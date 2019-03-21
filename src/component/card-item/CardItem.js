@@ -9,11 +9,10 @@ export default function CardItem(props) {
   //     <p>{props.allCards[card].content}</p>
   //   </div>
   // ));
-
+  
   return (
     <li>
-      {/* <p>something{props.allCards['a'].title}</p> */}
-      <p>something</p>
+      <p>{props.title}</p>
       <button
         onClick={() => props.onDeleteCard(props.card)}
         type='button'>

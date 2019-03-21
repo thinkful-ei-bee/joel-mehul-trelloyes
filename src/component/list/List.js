@@ -9,16 +9,16 @@ export default function List(props) {
   // cardsToRender = props.cardsIds.filter( id => (
 
   // ));
-
+  console.log(props);
   return (
     <div>
       <p>{props.header}</p>
       <ul>
-        {props.cardIds.map((card, index) =>
+        {props.cards.map((card, index) =>
           <CardItem 
             key={index}
-            title={card.title}
-            content={card.content}
+            title={props.cards[index].title}
+            content={props.cards[index].content}
             onDeleteCard={props.onDeleteCard}
           />
         )}
