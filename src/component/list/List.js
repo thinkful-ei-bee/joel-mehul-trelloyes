@@ -6,26 +6,24 @@ export default function List(props) {
   
   return (
 
-    <seciton>
-      <>
-        <p>{props.header}</p>
-        <ul>
-          {props.cards.map((card, index) =>
-            <CardItem 
-              key={index}
-              listId = {props.id}
-              card = {card}
-              onDeleteCard={props.onDeleteCard}
-            />
-          )}
-        </ul>
-        <button
-          onClick={() => props.onRandomCard(props.id)}
-          type='button'>
-          Add Random Card 
-        </button>
-      </>
-    </seciton>
+    <section className="list-section">
+      <p><h2>{props.header}</h2></p>
+      <ul>
+        {props.cards.map((card, index) =>
+          <CardItem 
+            key={index}
+            listId = {props.id}
+            card = {card}
+            onDeleteCard={props.onDeleteCard}
+          />
+        )}
+      </ul>
+      <button
+        onClick={() => props.onRandomCard(props.id)}
+        type='button'>
+        Add Random Card 
+      </button>
+    </section>
   )
   
 }
