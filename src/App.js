@@ -44,10 +44,9 @@ class App extends Component {
   }
 
   handleDeleteCard = (card,listId) => {
-   let newArray = [];
-   let listIndex; 
-   let key = Object.keys(this.state.allCards).find(key => this.state.allCards[key] === card);
-
+    let newArray = [];
+    let listIndex; 
+    let key = Object.keys(this.state.allCards).find(key => this.state.allCards[key] === card);
 
     const newLists = this.state.lists.map(list => {
       if (list.id === listId) {
@@ -56,21 +55,11 @@ class App extends Component {
       return list
     })
 
-
     this.setState({
-      
       lists: newLists
-
     })
-    
-
   }
-
-  // handleRandomCard = (cardObject) => {
-  //   console.log('random card generated: ', cardObject)
-  // }
-
-    newRandomCard = () => {
+  newRandomCard = () => {
     const id = Math.random().toString(36).substring(2, 4)
       + Math.random().toString(36).substring(2, 4);
     return {
@@ -91,22 +80,15 @@ class App extends Component {
     })
 
     this.setState({
-      
         lists: newLists,
         allCards: {
           ...this.state.allCards,
           [newCard.id]: newCard
-        
       }
     })
 
-
-      };
-
-  
-
+  };
   render() {
-
     return (
       <main className="App">
 

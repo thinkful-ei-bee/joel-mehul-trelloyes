@@ -4,16 +4,9 @@ import AddRandomCardForm from '../add-random-card-form/AddRandomCardForm';
 
 export default function List(props) {
   
-  // Needs to filter allCards based on card.id
-  //console.log(props.cardIds);
-
-  // cardsToRender = props.cardsIds.filter( id => (
-
-  // ));
   return (
 
     <seciton>
-
       <>
         <p>{props.header}</p>
         <ul>
@@ -27,14 +20,14 @@ export default function List(props) {
           )}
         </ul>
         <button
-        onClick={() => props.onRandomCard(props.id)}
-        type='button'>
-        Add Random Card 
-      </button>
+          onClick={() => props.onRandomCard(props.id)}
+          type='button'>
+          Add Random Card 
+        </button>
       </>
     </seciton>
   )
-    
+  
 }
 
 List.defaultProps = {
