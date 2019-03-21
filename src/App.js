@@ -93,8 +93,6 @@ class App extends Component {
       <main className="App">
 
         <section className="App-list">
-          {/* list stuff goes here */}
-          {/* {lists} */}
 
           <CardLists 
             lists={this.state.lists}
