@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './component/card/card';
-import List from './component/list/list';
+import CardLists from './component/card-lists/CardLists';
 
 class App extends Component {
-
   state = {
     lists: [
       {
@@ -55,25 +53,24 @@ class App extends Component {
 
   render() {
 
-    const lists = this.state.lists.map((list) => (
-      <section className="List" key={list.id}>
-      <header className="List-header">
-        <h2>{list.header}</h2>
-      </header>
-        <Card allCards={this.state.allCards} cardIds={list.cardIds}></Card>
-      </section>
-    ));
-
     return (
       <main className="App">
 
-        {/* <header className="App-header">
-          <h1>Trelloyes!</h1>
-        </header> */}
+        {/* <section>
+          <AddRandomCardForm 
+            onRandomCard={this.handleRandomCard}
+          />
+        </section> */}
 
         <section className="App-list">
           {/* list stuff goes here */}
-          {lists}
+          {/* {lists} */}
+
+          <CardLists 
+            lists={this.state.lists}
+            onDeleteCard={this.handleDeleteCard}
+          />
+          
         </section>
 
       </main>
