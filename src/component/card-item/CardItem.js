@@ -12,7 +12,8 @@ export default function CardItem(props) {
 
   return (
     <li>
-      <p>something{props.card.title}</p>
+      {/* <p>something{props.allCards['a'].title}</p> */}
+      <p>something</p>
       <button
         onClick={() => props.onDeleteCard(props.card)}
         type='button'>
@@ -24,5 +25,7 @@ export default function CardItem(props) {
 }
 
 CardItem.defaultProps = {
-  card: {}
+  allCards: {},
+  title: {},
+  content: {},
 }
