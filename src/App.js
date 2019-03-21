@@ -72,20 +72,26 @@ class App extends Component {
 
   }
 
-  handleRandomCard = (cardObject) => {
-    console.log('random card generated: ', cardObject)
+  // handleRandomCard = (cardObject) => {
+  //   console.log('random card generated: ', cardObject)
+  // }
+
+  handleNewRandomCard() {
+    const id = Math.random().toString(36).substring(2, 4)
+      + Math.random().toString(36).substring(2, 4);
+    
+    console.log(id);
+      // return {
+    //   id,
+    //   title: `Random Card ${id}`,
+    //   content: 'lorem ipsum',
+    // }
   }
 
   render() {
 
     return (
       <main className="App">
-
-        {/* <section>
-          <AddRandomCardForm 
-            onRandomCard={this.handleRandomCard}
-          />
-        </section> */}
 
         <section className="App-list">
           {/* list stuff goes here */}
@@ -95,6 +101,7 @@ class App extends Component {
             lists={this.state.lists}
             allCards={this.state.allCards}
             onDeleteCard={this.handleDeleteCard}
+            onRandomCard={this.handleRandomCard}
           />
 
         </section>

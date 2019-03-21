@@ -7,7 +7,7 @@ export default function CardLists(props) {
 
     <>
       {props.lists.map((list, index) => 
-       
+      
         <List 
           key={index}
           id = {list.id}
@@ -16,8 +16,9 @@ export default function CardLists(props) {
           // allCards={props.allCards}
           cards={list.cardIds.map(id => props.allCards[id])}
           onDeleteCard={props.onDeleteCard}
+          onRandomCard={props.handleNewRandomCard}
         />
-       
+      
       )}
     </>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import CardItem from '../card-item/CardItem.js'
+import AddRandomCardForm from '../add-random-card-form/AddRandomCardForm';
 
 export default function List(props) {
   
@@ -11,19 +12,27 @@ export default function List(props) {
   // ));
   console.log(props);
   return (
-    <div>
-      <p>{props.header}</p>
-      <ul>
-        {props.cards.map((card, index) =>
-          <CardItem 
-            key={index}
-            listId = {props.id}
-            card = {card}
-            onDeleteCard={props.onDeleteCard}
-          />
-        )}
-      </ul>
-    </div>
+
+    <seciton>
+      <>
+        <AddRandomCardForm 
+          onRandomCard={props.handleNewRandomCard}
+        />
+      </>
+      <>
+        <p>{props.header}</p>
+        <ul>
+          {props.cards.map((card, index) =>
+            <CardItem 
+              key={index}
+              listId = {props.id}
+              card = {card}
+              onDeleteCard={props.onDeleteCard}
+            />
+          )}
+        </ul>
+      </>
+    </seciton>
   )
     
 }
