@@ -43,8 +43,33 @@ class App extends Component {
     },
   }
 
-  handleDeleteCard = (card) => {
-    console.log('delete card: ', card)
+  handleDeleteCard = (card,listId) => {
+   let newArray = [];
+   let listIndex; 
+   let key = Object.keys(this.state.allCards).find(key => this.state.allCards[key] === card);
+
+    console.log(key + " " + listId);
+
+    for(let x =0; x<this.state.lists.length; x++)
+    {
+        if(this.state.lists[x].id === listId)
+        { 
+          listIndex = x;
+          newArray = this.state.lists[x].cardIds.filter(card => card !== key);
+          break;
+        }
+    }
+    console.log(newArray);
+
+    this.state.lists[listIndex].cardIds = newArray;
+
+    this.setState({
+      
+      lists: this.state.lists
+
+    })
+    
+
   }
 
   handleRandomCard = (cardObject) => {

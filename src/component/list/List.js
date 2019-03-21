@@ -17,8 +17,8 @@ export default function List(props) {
         {props.cards.map((card, index) =>
           <CardItem 
             key={index}
-            title={props.cards[index].title}
-            content={props.cards[index].content}
+            listId = {props.id}
+            card = {card}
             onDeleteCard={props.onDeleteCard}
           />
         )}

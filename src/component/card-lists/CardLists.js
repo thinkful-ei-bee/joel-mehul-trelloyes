@@ -10,6 +10,7 @@ export default function CardLists(props) {
        
         <List 
           key={index}
+          id = {list.id}
           header={list.header}
           // cardIds={list.cardIds}
           // allCards={props.allCards}
