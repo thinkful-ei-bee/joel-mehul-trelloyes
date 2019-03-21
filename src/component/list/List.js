@@ -10,15 +10,10 @@ export default function List(props) {
   // cardsToRender = props.cardsIds.filter( id => (
 
   // ));
-  console.log(props);
   return (
 
     <seciton>
-      <>
-        <AddRandomCardForm 
-          onRandomCard={props.handleNewRandomCard}
-        />
-      </>
+
       <>
         <p>{props.header}</p>
         <ul>
@@ -31,6 +26,11 @@ export default function List(props) {
             />
           )}
         </ul>
+        <button
+        onClick={() => props.onRandomCard(props.id)}
+        type='button'>
+        Add Random Card 
+      </button>
       </>
     </seciton>
   )

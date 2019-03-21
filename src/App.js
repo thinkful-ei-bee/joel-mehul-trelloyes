@@ -48,24 +48,18 @@ class App extends Component {
    let listIndex; 
    let key = Object.keys(this.state.allCards).find(key => this.state.allCards[key] === card);
 
-    console.log(key + " " + listId);
 
-    for(let x =0; x<this.state.lists.length; x++)
-    {
-        if(this.state.lists[x].id === listId)
-        { 
-          listIndex = x;
-          newArray = this.state.lists[x].cardIds.filter(card => card !== key);
-          break;
-        }
-    }
-    console.log(newArray);
+    const newLists = this.state.lists.map(list => {
+      if (list.id === listId) {
+        list.cardIds = list.cardIds.filter(card => card !==key)
+      }
+      return list
+    })
 
-    this.state.lists[listIndex].cardIds = newArray;
 
     this.setState({
       
-      lists: this.state.lists
+      lists: newLists
 
     })
     
@@ -76,17 +70,40 @@ class App extends Component {
   //   console.log('random card generated: ', cardObject)
   // }
 
-  handleNewRandomCard() {
+    newRandomCard = () => {
     const id = Math.random().toString(36).substring(2, 4)
       + Math.random().toString(36).substring(2, 4);
-    
-    console.log(id);
-      // return {
-    //   id,
-    //   title: `Random Card ${id}`,
-    //   content: 'lorem ipsum',
-    // }
+    return {
+      id,
+      title: `Random Card ${id}`,
+      content: 'lorem ipsum',
+    }
   }
+  handleNewRandomCard = (listId) => {
+    const newCard = this.newRandomCard()
+   
+    const newLists = this.state.lists.map(list => {
+      if (list.id === listId) {
+        list.cardIds.push(newCard.id)
+        console.log(list);
+      }
+      return list
+    })
+
+    this.setState({
+      
+        lists: newLists,
+        allCards: {
+          ...this.state.allCards,
+          [newCard.id]: newCard
+        
+      }
+    })
+
+
+      };
+
+  
 
   render() {
 
@@ -101,7 +118,7 @@ class App extends Component {
             lists={this.state.lists}
             allCards={this.state.allCards}
             onDeleteCard={this.handleDeleteCard}
-            onRandomCard={this.handleRandomCard}
+            onRandomCard={this.handleNewRandomCard}
           />
 
         </section>

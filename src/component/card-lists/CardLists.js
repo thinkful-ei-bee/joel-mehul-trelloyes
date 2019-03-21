@@ -3,9 +3,7 @@ import List from '../list/List'
 
 export default function CardLists(props) {
   
-  return (  
-
-    <>
+  return (     <>
       {props.lists.map((list, index) => 
       
         <List 
@@ -16,7 +14,7 @@ export default function CardLists(props) {
           // allCards={props.allCards}
           cards={list.cardIds.map(id => props.allCards[id])}
           onDeleteCard={props.onDeleteCard}
-          onRandomCard={props.handleNewRandomCard}
+          onRandomCard={props.onRandomCard}
         />
       
       )}
