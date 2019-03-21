@@ -44,8 +44,7 @@ class App extends Component {
   }
 
   handleDeleteCard = (card,listId) => {
-    let newArray = [];
-    let listIndex; 
+
     let key = Object.keys(this.state.allCards).find(key => this.state.allCards[key] === card);
 
     const newLists = this.state.lists.map(list => {
