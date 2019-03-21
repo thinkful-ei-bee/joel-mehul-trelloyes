@@ -6,6 +6,10 @@ export default function List(props) {
   // Needs to filter allCards based on card.id
   //console.log(props.cardIds);
 
+  // cardsToRender = props.cardsIds.filter( id => (
+
+  // ));
+
   return (
     <div>
       <p>{props.header}</p>
