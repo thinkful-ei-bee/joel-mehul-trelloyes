@@ -4,17 +4,24 @@ import List from '../list/List'
 export default function CardLists(props) {
   
   return (
-    <div>
+    <>
       {props.lists.map((list, index) => 
-        <ul key={index}>
-          <List 
-            key={index}
-            cardIds={list.cardIds}
-            onDeleteCard={props.onDeleteCard}
-          />
-        </ul>  
+       
+        <List 
+          key={index}
+          header={list.header}
+          cardIds={list.cardIds}
+          allCards={props.allCards}
+          onDeleteCard={props.onDeleteCard}
+        />
+       
       )}
-    </div>
+    </>
   )
 
+}
+
+CardLists.defaultProps = {
+  lists: {},
+  allCards: {}
 }

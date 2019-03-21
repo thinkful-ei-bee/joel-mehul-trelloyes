@@ -68,9 +68,10 @@ class App extends Component {
 
           <CardLists 
             lists={this.state.lists}
+            allCards={this.state.allCards}
             onDeleteCard={this.handleDeleteCard}
           />
-          
+
         </section>
 
       </main>
